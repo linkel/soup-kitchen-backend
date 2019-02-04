@@ -6,7 +6,7 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('items').insert([
-        {name: 'butter', amount: '1', unit: 'lb', imageURL: 'images.butter', categoryID:4},
+        {name: 'butter', amount: '1', unit: 'lb', imageURL: '../assets/butter.jpg', categoryID:4},
         {name: 'milk', amount: '1', unit: 'gal', imageURL: 'images.milk', categoryID:4},
         {name: 'yogurt', amount: '64', unit: 'oz', imageURL: 'images.yogurt', categoryID:4},
         {name: 'eggs', amount: '3', unit: 'dozen', imageURL: 'images.eggs', categoryID:5},
