@@ -3,7 +3,7 @@ module.exports = {
 	development: {
 		client: 'sqlite3',
 		connection: {
-			filename: './database/soup-kitchen-db.sqlite3.sqlite3'
+			filename: './database/soup-kitchen-db.sqlite3'
 		},
 		useNullAsDefault: true,
 		migrations: {
