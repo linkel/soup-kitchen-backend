@@ -16,7 +16,11 @@ const url = require('url');
 //create a new item for a category
 router.post('/', emptyCheck, (req, res, next) => {
 	const { body } = req;
-
+	const {imageURL} = req.body
+	if(imageURL === ''){
+		imageURL = '../../assets/dish-icon.jpg'
+	}
+	console.log(body)
 	db.addItem(body)
 		.then((id) => {
 			return res.status(responseStatus.created).json({ itemID: id });
