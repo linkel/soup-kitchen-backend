@@ -18,7 +18,7 @@ a **POST** request to */api/staff/register* will create a new user and return an
 
 {
 
-    token: 'aKafj1Dg2kLD434So',
+    decodedToken: 'aKafj1Dg2kLD434So',
     id: 1,
     email: 'jdoe@abc.com',
     message: 'Registration successful.'
@@ -39,7 +39,7 @@ a **POST** request to */api/staff/login* will login the user and return an objec
 
 {
 
-    token: 'aKafj1Dg2kLD434So',
+    decodedToken: 'aKafj1Dg2kLD434So',
     id: 1,
     email: 'jdoe@abc.com',
     message: 'User logged in successfully.'
@@ -58,7 +58,7 @@ a **GET** request to */api/items* will return an object with all items in the in
 
 {
 
-    token: 'aKafj1Dg2kLD434So',
+    decodedToken: 'aKafj1Dg2kLD434So',
     items:[
         {id: 1, name: 'strawberries', amount: 1, unit: 'lb', imageURL: '', categoryID: 1},
         {id: 2, name: 'blueberries', amount: 20, unit: 'oz', imageURL: '', categoryID: 1},
@@ -93,7 +93,7 @@ a **GET** request to */api/items/:id* will return an object including the item w
 
 {
 
-    token: 'aKafj1Dg2kLD434So',
+    decodedToken: 'aKafj1Dg2kLD434So',
     item:{
         id: 1,
         name: 'strawberries',
@@ -142,7 +142,7 @@ a **GET** request to */api/categories* will return a list of all the categories:
 
 }
 
-    token: 'aKafj1Dg2kLD434So',
+    decodedToken: 'aKafj1Dg2kLD434So',
     categories: [
         {
             id: 1,
@@ -182,7 +182,7 @@ the **POST** request must include the following:
 a **GET** request to */api/categories/:id* will return an object with the category associated the ID:
 {
 
-    token: 'aKafj1Dg2kLD434So',
+    decodedToken: 'aKafj1Dg2kLD434So',
     category: {
         id: 2,
         name: 'vegetables',
@@ -225,7 +225,7 @@ a **DELETE** request to */api/categories/:id* will return an object with a count
 a **GET** request to */api/staff* will return a list of all staff members:
 {
 
-    token: 'aKafj1Dg2kLD434So',
+    decodedToken: 'aKafj1Dg2kLD434So',
     staff: [
         {
             id: 1,
@@ -255,7 +255,7 @@ a **GET** request to */api/staff* will return a list of all staff members:
 a **GET** request to */api/staff/:id* will return an object with the staff member associated the ID:
 {
 
-    token: 'aKafj1Dg2kLD434So',
+    decodedToken: 'aKafj1Dg2kLD434So',
     staff: {
         id: 1,
         name: 'John Smith ',
