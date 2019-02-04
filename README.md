@@ -60,10 +60,10 @@ a **GET** request to */api/items* will return an object with all items in the in
 
     token: 'aKafj1Dg2kLD434So',
     items:[
-        {id: 1, name: 'strawberries', amount: 1, unit: 'lb(s)', categoryID: 1},
-        {id: 2, name: 'blueberries', amount: 20, unit: 'oz', categoryID: 1},
-        {id: 3, name: 'carrots', amount: 1.5, unit: 'lbs', categoryID: 2},
-        {id: 4, name: 'broccoli', amount: 1, unit: 'lb', categoryID: 2}
+        {id: 1, name: 'strawberries', amount: 1, unit: 'lb', imageURL: '', categoryID: 1},
+        {id: 2, name: 'blueberries', amount: 20, unit: 'oz', imageURL: '', categoryID: 1},
+        {id: 3, name: 'carrots', amount: 1.5, unit: 'lbs', imageURL: '', categoryID: 2},
+        {id: 4, name: 'broccoli', amount: 1, unit: 'lb', imageURL: '', categoryID: 2}
     ]
 
 }    
@@ -84,7 +84,7 @@ the **POST** request must include the following:
 - *name*
 - *amount* (**as an integer**)
 - *categoryID* (**as an integer**)
-( *unit* is optional )
+- ( *unit* && *imageURL* are optional )
 
 
 
@@ -98,7 +98,8 @@ a **GET** request to */api/items/:id* will return an object including the item w
         id: 1,
         name: 'strawberries',
         amount: 1, 
-        unit: 'lb(s)',
+        unit: 'lb',
+        imageURL: '',
         categoryID: 1
     }
 
@@ -129,7 +130,7 @@ the **PUT** request must include the following:
 - *name*
 - *amount* (**as an integer**)
 - *categoryID* (**as an integer**)
-- ( *unit* is optional )
+- ( *unit* && *imageURL* are optional )
 
 
 
@@ -147,21 +148,22 @@ a **GET** request to */api/categories* will return a list of all the categories:
             id: 1,
             name: 'fruits',
             inventory: [
-                {id: 1, name: 'strawberries', amount: '1 lb'},
-                {id: 2, name: 'blueberries', amount: '20 oz'}
+                {id: 1, name: 'strawberries', amount: 1, unit: 'lb', imageURL: '', categoryID: 1},
+                {id: 2, name: 'blueberries', amount: 20, unit: 'oz', imageURL: '', categoryID: 1},
             ]
         }
         {
             id: 2,
             name: 'vegetables',
             items: [
-                {id: 3, name: 'carrots', amount: 1.5, unit: 'lb(s)'},
-                {id: 4, name: 'broccoli', amount: 1, unit: 'lb(s)'}
+                {id: 3, name: 'carrots', amount: 1.5, unit: 'lbs', imageURL: '', categoryID: 2},
+                {id: 4, name: 'broccoli', amount: 1, unit: 'lb', imageURL: '', categoryID: 2}
             ]
         }
     ]
 
 }
+
 ***Note:*** the user must be logged in to view this page. They can have any role.
 
 ----------------------------------------------------
@@ -182,11 +184,11 @@ a **GET** request to */api/categories/:id* will return an object with the catego
 
     token: 'aKafj1Dg2kLD434So',
     category: {
-        id: 1,
-        name: 'fruits',
+        id: 2,
+        name: 'vegetables',
         items: [
-            {id: 1, name: 'strawberries', amount: 1, unit: 'lb(s)'},
-            {id: 2, name: 'blueberries', amount: 20, unit: 'oz'}
+            {id: 3, name: 'carrots', amount: 1.5, unit: 'lbs', imageURL: '', categoryID: 2},
+            {id: 4, name: 'broccoli', amount: 1, unit: 'lb', imageURL: '', categoryID: 2}
         ]
     }
 
