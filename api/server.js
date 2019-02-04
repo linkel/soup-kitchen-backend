@@ -13,4 +13,7 @@ server.use('/api/staff', userRoutes);
 server.use('/api/items', itemsRoutes);
 server.use(errorHandler);
 
+server.get('/', (req,res) => {
+    return 'sanity check'
+ }) 
 module.exports = server;
