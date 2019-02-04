@@ -29,7 +29,7 @@ router.post('/register', emptyCheck, (req, res, next) => {
 		})
 		.catch((err) => {
 			console.log(err);
-			next(responseStatus.serverError);
+			next(responseStatus.serverError, err);
 		});
 });
 

@@ -2,12 +2,6 @@
 
 # Instructions
 
-To get the API up and running run:
-
-```console
-    yarn reload
-```
-
 All API requests are made to: ***https://soup-kitchen-backend.herokuapp.com***
 
 # MVP
