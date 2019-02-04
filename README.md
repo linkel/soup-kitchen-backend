@@ -51,6 +51,7 @@ the **POST** request must include the following:
 ## Items
 
 a **GET** request to */api/items* will return an object with all items in the inventory:
+
 token: 'aKafj1Dg2kLD434So',
 items:[
     {id: 1, name: 'strawberries', amount: 1, unit: 'lb(s)', categoryID: 1},
@@ -58,7 +59,8 @@ items:[
     {id: 3, name: 'carrots', amount: 1.5, unit: 'lbs', categoryID: 2},
     {id: 4, name: 'broccoli', amount: 1, unit: 'lb', categoryID: 2}
 ]
-***note:*** the user must be logged in to view this page. They can have any role.
+
+***Note:*** the user must be logged in to view this page. They can have any role.
 
 ----------------------------------------------------
 a **POST** request to */api/items* will return the itemID of the added item:
@@ -78,6 +80,7 @@ the **POST** request must include the following:
 
 ----------------------------------------------------
 a **GET** request to */api/items/:id* will return an object including the item with the associated ID:
+
 token: 'aKafj1Dg2kLD434So',
 item:{
     id: 1,
@@ -86,7 +89,8 @@ item:{
     unit: 'lb(s)',
     categoryID: 1
 }
-***note:*** the user must be logged in to view this page. They can have any role.
+
+***Note:*** the user must be logged in to view this page. They can have any role.
 
 ----------------------------------------------------
 a **DELETE** request to */api/items/:id* will return an object with a count of 1 if successful:
@@ -137,7 +141,7 @@ categories: [
     }
 ]
 
-***note:*** the user must be logged in to view this page. They can have any role.
+***Note:*** the user must be logged in to view this page. They can have any role.
 
 ----------------------------------------------------
 a **POST** request to */api/categories* will return the categoryID of the new category:
@@ -162,7 +166,7 @@ category: {
     ]
 }
 
-***note:*** the user must be logged in to view this page. They can have any role.
+***Note:*** the user must be logged in to view this page. They can have any role.
 
 ------------------------------------------------------
 a **PUT** request to */api/categories/:id* will return an object with a count of 1 if successful:
@@ -187,6 +191,7 @@ a **DELETE** request to */api/categories/:id* will return an object with a count
 ## Staff
 
 a **GET** request to */api/staff* will return a list of all staff members:
+
 token: 'aKafj1Dg2kLD434So',
 staff: [
     {
@@ -209,7 +214,7 @@ staff: [
     }
 ]
 
-***note:*** the user must be logged in and be an **admin** or **staff** to view this page.
+***Note:*** the user must be logged in and be an **admin** or **staff** to view this page.
 
 ----------------------------------------------------
 a **GET** request to */api/staff/:id* will return an object with the staff member associated the ID:
@@ -219,7 +224,8 @@ staff: {
     name: 'John Smith ',
     email: 'jsmith@abc.com'
 }
-***note:*** the user must be logged in and be an **admin** or **staff** to view this page.
+
+***Note:*** the user must be logged in and be an **admin** or **staff** to view this page.
 
 ------------------------------------------------------
 a **PUT** request to */api/staff/:id* will return an object with a count of 1 if successful:
@@ -241,7 +247,8 @@ a **DELETE** request to */api/staff/:id* will return an object with a count of 1
 }
 
 ***Note:*** All **errors** will come back as an object like so: 
-ex. Missing input on login
+
+- ex. Missing input on login
 
 {
     message: "Input cannot be blank.",
