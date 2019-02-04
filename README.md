@@ -8,7 +8,7 @@ To get the API up and running run:
     yarn reload
 ```
 
-All API requests are made to: ***http://localhost:8000***
+All API requests are made to: ***https://soup-kitchen-backend.herokuapp.com***
 
 # MVP
 
