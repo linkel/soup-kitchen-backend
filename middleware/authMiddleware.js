@@ -47,7 +47,8 @@ module.exports = {
 
 	generateToken: (user) => {
 		const payload = {
-			email: user.email
+			email: user.email,
+			role: user.role
 		};
 		const secret = process.env.SECUREKEY_AMBER_KEY
 		const options = {
