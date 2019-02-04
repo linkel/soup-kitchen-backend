@@ -6,7 +6,8 @@ const responseStatus = require('../config/responseStatuses');
 const {
 	generateToken,
 	protects,
-	emptyCheck
+	emptyCheck,
+	checkRole
 } = require('../middleware/authMiddleware');
 
 // const secret = require('./keys').jwtKey;
@@ -58,7 +59,7 @@ router.post('/login', emptyCheck, (req, res, next) => {
 });
 //Read
 //get all users
-router.get('/', protects, (req, res, next) => {
+router.get('/', protects, checkRole(), (req, res, next) => {
 	db.getUsers()
 		.then((users) => {
 			res
@@ -73,7 +74,7 @@ router.get('/', protects, (req, res, next) => {
 
 //Read
 //get a user by id
-router.get('/:id', protects, (req, res, next) => {
+router.get('/:id', protects, checkRole(), (req, res, next) => {
 	const { id } = req.params;
 	db.getUsers(id)
 		.then((users) => {

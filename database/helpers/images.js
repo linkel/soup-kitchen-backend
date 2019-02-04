@@ -1,19 +1,22 @@
- module.exports = {
-    dishIcon: require('./dish-icon.jpg'),
-    bacon: require('./bacon.jpg'), 
-    bananas: require('./bananas.jpg'),
-    beans: require('./beans.png'),
-    blueberries: require('./blueberries.jpg'),
-    bread: require('./bread.jpg'),
-    broccoli: require('./broccoli.jpg'),
-    butter:  require('./butter.jpg'),
-    carrots: require('./carrots.jpg'),
-    cheese: require('./cheese.jpg'),
-    eggs: require('./eggs.jpg'),
-    grapes: require('./grapes.jpg'),
-    milk: require('./milk.jpg'),
-    potatoes: require('./potatoes.jpg'),
-    rice: require('./rice.jpg'),
-    strawberries: require('./strawberries.jpg'),
-    yogurt: require('./yogurt.png')
- } 
+// Will use if other way does not work
+
+
+//  module.exports = {
+//     dishIcon: require('../../assets/dish-icon.jpg'),
+//     bacon: require('../../assets/bacon.jpg'), 
+//     bananas: require('../../assets/bananas.jpg'),
+//     beans: require('../../assets/beans.png'),
+//     blueberries: require('../../assets/blueberries.jpg'),
+//     bread: require('../../assets/bread.jpg'),
+//     broccoli: require('../../assets/broccoli.jpg'),
+//     butter:  require('../../assets/butter.jpg'),
+//     carrots: require('../../assets/carrots.jpg'),
+//     cheese: require('../../assets/cheese.jpg'),
+//     eggs: require('../../assets/eggs.jpg'),
+//     grapes: require('../../assets/grapes.jpg'),
+//     milk: require('../../assets/milk.jpg'),
+//     potatoes: require('../../assets/potatoes.jpg'),
+//     rice: require('../../assets/rice.jpg'),
+//     strawberries: require('../../assets/strawberries.jpg'),
+//     yogurt: require('../../assets/yogurt.png')
+//  } 

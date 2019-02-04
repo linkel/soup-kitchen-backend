@@ -1,10 +1,8 @@
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
 const responseStatus = require('../config/responseStatuses');
-// const private = fs.readFileSync('middleware/private.key', 'utf8');
 
 require('dotenv').config();
-// require('custom-env').env('staging')
 
 module.exports = {
 	protects: (req, res, next) => {
@@ -33,6 +31,18 @@ module.exports = {
 			}
 		}
 		next()
+	},
+	checkRole: () => {
+		return (req, res, next) => {
+			if (
+				req.decodedToken.role.includes('staff') ||
+				req.decodedToken.role.includes('admin')
+			) {
+				next();
+			} else {
+				next(responseStatus.forbiddenAccess);
+			}
+		};
 	},
 
 	generateToken: (user) => {

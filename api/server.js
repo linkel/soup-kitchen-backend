@@ -13,7 +13,7 @@ server.use('/api/staff', userRoutes);
 server.use('/api/items', itemsRoutes);
 server.use(errorHandler);
 
-server.get('/', (req,res) => {
-    res.status(200).json('sanity check') 
- }) 
+// server.get('/', (req,res) => {
+//     res.status(200).json('heroku sanity check') 
+//  }) 
 module.exports = server;
