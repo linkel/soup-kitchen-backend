@@ -15,7 +15,7 @@ function errorHandler(error, req, res, next) {
 		case responseStatus.serverError:
 			res.status(responseStatus.serverError).json({
 				message: `The request could not be completed. Please try again.`,
-				error: error.message
+				error: error
 			});
 
 			break;
