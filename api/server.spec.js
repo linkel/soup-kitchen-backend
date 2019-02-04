@@ -21,7 +21,12 @@ describe('Authentication', function() {
 	it('should validate with a jwt on signup', function(done) {
 		request(server)
 			.post('/api/staff/register')
-			.send({ name: 'Jane Doe', email: 'jdoe@abc.com', password: 'Ff!738FJ*' })
+			.send({
+				name: 'Jane Doe',
+				email: 'jdoe@abc.com',
+				password: 'Ff!738FJ*',
+				role: 'admin'
+			})
 			.end(function(err, res) {
 				let token = res.body.token;
 				request(server)
@@ -63,6 +68,28 @@ describe('Authentication', function() {
 					});
 			});
 	});
+
+	it('should send 403 if staff role is volunteer', function(done) {
+		request(server)
+			.post('/api/staff/register')
+			.send({
+				name: 'Jane Doe',
+				email: 'akfjl@abc.com',
+				password: 'Ff!738FJ*',
+				role: 'volunteer'
+			})
+			.end(function(err, res) {
+				let token = res.body.token;
+				request(server)
+					.get('/api/staff')
+					.set('Authorization', token)
+					.expect(403)
+					.end(function(err, res) {
+						if (err) return done(err);
+						done();
+					});
+			});
+	});
 });
 
 /* --------------------- Item Endpoints -------------------- */
@@ -71,7 +98,13 @@ describe('/inventory CRUD', function() {
 	it('should create an item', function(done) {
 		request(server)
 			.post('/api/items')
-			.send({ name: 'corn', amount: 3, unit: 'lb(s)', categoryID: 1 })
+			.send({
+				name: 'corn',
+				amount: 3,
+				unit: 'lb(s)',
+				imageURL: 'ajkflajk',
+				categoryID: 1
+			})
 			.set('Accept', 'application/json')
 			.expect(201, done);
 	});
