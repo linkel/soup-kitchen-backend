@@ -14,6 +14,6 @@ server.use('/api/items', itemsRoutes);
 server.use(errorHandler);
 
 server.get('/', (req,res) => {
-    return 'sanity check'
+    res.status(200).json('sanity check') 
  }) 
 module.exports = server;
