@@ -57,13 +57,20 @@ a **GET** request to */api/items* will return an object with all items in the in
 
 {
 
-    decodedToken: 'aKafj1Dg2kLD434So',
     items:[
-        {id: 1, name: 'strawberries', amount: 1, unit: 'lb', imageURL: '', categoryID: 1},
-        {id: 2, name: 'blueberries', amount: 20, unit: 'oz', imageURL: '', categoryID: 1},
-        {id: 3, name: 'carrots', amount: 1.5, unit: 'lbs', imageURL: '', categoryID: 2},
-        {id: 4, name: 'broccoli', amount: 1, unit: 'lb', imageURL: '', categoryID: 2}
-    ]
+        {id: 1, name: 'strawberries', amount: 1, unit: 'lb', imageURL: 'https://i.imgur.com/asfFRe7.jpg', categoryID: 1},
+        {id: 2, name: 'blueberries', amount: 20, unit: 'oz', imageURL: 'https://i.imgur.com/https://i.imgur.com/RTZ0qFP.jpgdf.jpg', categoryID: 1},
+        {id: 3, name: 'carrots', amount: 1.5, unit: 'lbs', imageURL: 'https://i.imgur.com/GD4FFg.jpg', categoryID: 2},
+        {id: 4, name: 'broccoli', amount: 1, unit: 'lb', imageURL: 'https://i.imgur.com/afmdagF.jpg', categoryID: 2}
+    ],
+
+    "decodedToken": {
+        "email": "faked@abc.com",
+        "role": "admin",
+        "iat": 1549409409,
+        "exp": 1549413009,
+        "jti": "12345"
+    }
 
 }    
 
@@ -92,14 +99,21 @@ a **GET** request to */api/items/:id* will return an object including the item w
 
 {
 
-    decodedToken: 'aKafj1Dg2kLD434So',
     item:{
         id: 1,
         name: 'strawberries',
         amount: 1, 
         unit: 'lb',
-        imageURL: '',
+        imageURL: 'https://i.imgur.com/RTsaFP.jpg',
         categoryID: 1
+    },
+
+    "decodedToken": {
+        "email": "faked@abc.com",
+        "role": "admin",
+        "iat": 1549409409,
+        "exp": 1549413009,
+        "jti": "12345"
     }
 
 }    
@@ -141,25 +155,32 @@ a **GET** request to */api/categories* will return a list of all the categories:
 
 }
 
-    decodedToken: 'aKafj1Dg2kLD434So',
     categories: [
         {
             id: 1,
             name: 'fruits',
             inventory: [
-                {id: 1, name: 'strawberries', amount: 1, unit: 'lb', imageURL: '', categoryID: 1},
-                {id: 2, name: 'blueberries', amount: 20, unit: 'oz', imageURL: '', categoryID: 1},
+                {id: 1, name: 'strawberries', amount: 1, unit: 'lb', imageURL: 'https://i.imgur.com/ABD0qFP.jpg', categoryID: 1},
+                {id: 2, name: 'blueberries', amount: 20, unit: 'oz', imageURL: 'https://i.imgur.com/RDF12Hd.jpg', categoryID: 1},
             ]
         }
         {
             id: 2,
             name: 'vegetables',
             items: [
-                {id: 3, name: 'carrots', amount: 1.5, unit: 'lbs', imageURL: '', categoryID: 2},
-                {id: 4, name: 'broccoli', amount: 1, unit: 'lb', imageURL: '', categoryID: 2}
+                {id: 3, name: 'carrots', amount: 1.5, unit: 'lbs', imageURL: 'https://i.imgur.com/RTZ0qFP.jpg', categoryID: 2},
+                {id: 4, name: 'broccoli', amount: 1, unit: 'lb', imageURL: 'https://i.imgur.com/47fHnED.jpg', categoryID: 2}
             ]
         }
-    ]
+    ],
+
+    "decodedToken": {
+        "email": "faked@abc.com",
+        "role": "admin",
+        "iat": 1549409409,
+        "exp": 1549413009,
+        "jti": "12345"
+    }
 
 }
 
@@ -181,14 +202,21 @@ the **POST** request must include the following:
 a **GET** request to */api/categories/:id* will return an object with the category associated the ID:
 {
 
-    decodedToken: 'aKafj1Dg2kLD434So',
     category: {
         id: 2,
         name: 'vegetables',
         items: [
-            {id: 3, name: 'carrots', amount: 1.5, unit: 'lbs', imageURL: '', categoryID: 2},
-            {id: 4, name: 'broccoli', amount: 1, unit: 'lb', imageURL: '', categoryID: 2}
+            {id: 3, name: 'carrots', amount: 1.5, unit: 'lbs', imageURL: 'https://i.imgur.com/RTZ0qFP.jpg', categoryID: 2},
+            {id: 4, name: 'broccoli', amount: 1, unit: 'lb', imageURL: 'https://i.imgur.com/47fHnED.jpg', categoryID: 2}
         ]
+    },
+    
+    "decodedToken": {
+        "email": "faked@abc.com",
+        "role": "admin",
+        "iat": 1549409409,
+        "exp": 1549413009,
+        "jti": "12345"
     }
 
 }
@@ -224,7 +252,6 @@ a **DELETE** request to */api/categories/:id* will return an object with a count
 a **GET** request to */api/staff* will return a list of all staff members:
 {
 
-    decodedToken: 'aKafj1Dg2kLD434So',
     staff: [
         {
             id: 1,
@@ -247,7 +274,15 @@ a **GET** request to */api/staff* will return a list of all staff members:
             email: 'jdoe@abc.com',
             role: 'volunteer'
         }
-    ]
+    ],
+
+    "decodedToken": {
+        "email": "faked@abc.com",
+        "role": "admin",
+        "iat": 1549409409,
+        "exp": 1549413009,
+        "jti": "12345"
+    }
 
 } 
 
@@ -257,12 +292,19 @@ a **GET** request to */api/staff* will return a list of all staff members:
 a **GET** request to */api/staff/:id* will return an object with the staff member associated the ID:
 {
 
-    decodedToken: 'aKafj1Dg2kLD434So',
     staff: {
         id: 1,
         firstname: 'John'
         lastname: 'Smith',
         email: 'jsmith@abc.com'
+    },
+
+    "decodedToken": {
+        "email": "faked@abc.com",
+        "role": "admin",
+        "iat": 1549409409,
+        "exp": 1549413009,
+        "jti": "12345"
     }
 
 }
