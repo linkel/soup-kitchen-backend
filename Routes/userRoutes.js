@@ -7,14 +7,15 @@ const {
 	generateToken,
 	protects,
 	emptyCheck,
-	checkRole
+	checkRole,
+	whitespaceCheck
 } = require('../middleware/authMiddleware');
 
 // const secret = require('./keys').jwtKey;
 
 //Create
 //create a new user and session
-router.post('/register', emptyCheck, (req, res, next) => {
+router.post('/register', emptyCheck, whitespaceCheck, (req, res, next) => {
 	const creds = req.body;
 	const hash = bcrypt.hashSync(creds.password, 12);
 	creds.password = hash;
@@ -94,7 +95,7 @@ router.get('/:id', protects, checkRole(), (req, res, next) => {
 
 //Update
 //update a users account
-router.put('/:id', emptyCheck, (req, res, next) => {
+router.put('/:id', emptyCheck, whitespaceCheck, (req, res, next) => {
 	const { id } = req.params;
 	const user = req.body;
 

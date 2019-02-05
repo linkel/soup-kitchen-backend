@@ -8,16 +8,20 @@ module.exports = {
 	protects: (req, res, next) => {
 		const token = req.headers.authorization;
 		if (token) {
-			jwt.verify(token, process.env.SECUREKEY_AMBER_KEY, (err, decodedToken) => {
-				if (err) {
-					//token is invalid
-					next(responseStatus.forbiddenAccess);
-				} else {
-					//token is valid
-					req.decodedToken = decodedToken;
-					next();
+			jwt.verify(
+				token,
+				process.env.SECUREKEY_AMBER_KEY,
+				(err, decodedToken) => {
+					if (err) {
+						//token is invalid
+						next(responseStatus.forbiddenAccess);
+					} else {
+						//token is valid
+						req.decodedToken = decodedToken;
+						next();
+					}
 				}
-			});
+			);
 		} else {
 			next(responseStatus.badCredentials);
 		}
@@ -28,11 +32,21 @@ module.exports = {
 		for (key in body) {
 			if (body[key] === '') {
 				next(responseStatus.badRequest);
-			} else if (body[key].match(/\s/g)) {
-				res.status(400).json({message: 'Input fields cannot contain whitespace.'})
 			}
 		}
-		next()
+		next();
+	},
+
+	whitespaceCheck: (req, res, next) => {
+		const { body } = req;
+		for (key in body) {
+			if (body[key].match(/\s/g)) {
+				res
+					.status(400)
+					.json({ message: 'Input fields cannot contain whitespace.' });
+			}
+		}
+		next();
 	},
 	checkRole: () => {
 		return (req, res, next) => {
@@ -52,7 +66,7 @@ module.exports = {
 			email: user.email,
 			role: user.role
 		};
-		const secret = process.env.SECUREKEY_AMBER_KEY
+		const secret = process.env.SECUREKEY_AMBER_KEY;
 		const options = {
 			expiresIn: '1h',
 			jwtid: '12345'
