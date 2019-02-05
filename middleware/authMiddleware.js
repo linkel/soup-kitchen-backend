@@ -43,7 +43,8 @@ module.exports = {
 			if (body[key].match(/\s/g)) {
 				res
 					.status(400)
-					.json({ message: 'Input fields cannot contain whitespace.' });
+					.json({ message: 'Input fields cannot contain whitespace.' })
+					next();
 			}
 		}
 		next();
