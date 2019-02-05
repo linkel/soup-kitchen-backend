@@ -28,6 +28,8 @@ module.exports = {
 		for (key in body) {
 			if (body[key] === '') {
 				next(responseStatus.badRequest);
+			} else if (body[key].match(/\s/g)) {
+				res.status(400).json({message: 'Input fields cannot contain whitespace.'})
 			}
 		}
 		next()

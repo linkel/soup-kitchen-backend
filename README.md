@@ -12,20 +12,25 @@ a **POST** request to */api/staff/register* will create a new user and return an
 
 {
 
-    decodedToken: 'aKafj1Dg2kLD434So',
+    token: 'aKafj1Dg2kLD434So',
     id: 1,
-    email: 'jdoe@abc.com',
+    email: 'jdoe@abc.com', 
     message: 'Registration successful.'
 
 }
 
+
 the **POST** request must include the following:
 
-- *name*
+- *firstname*
+- *lastname*
 - *email*
 - *password*
 - *role*
 
+***note:*** the email must be unique, the database will reject any duplicates. The email functions as a username for that user. 
+
+*Also*, none of the input fields can contain spaces. The database will send back an error if so.
 
 ## Login
 
@@ -33,7 +38,7 @@ a **POST** request to */api/staff/login* will login the user and return an objec
 
 {
 
-    decodedToken: 'aKafj1Dg2kLD434So',
+    token: 'aKafj1Dg2kLD434So',
     id: 1,
     email: 'jdoe@abc.com',
     message: 'User logged in successfully.'
@@ -223,19 +228,22 @@ a **GET** request to */api/staff* will return a list of all staff members:
     staff: [
         {
             id: 1,
-            name: 'John Smith ',
+            firstname: 'John',
+            lastname: 'Smith',
             email: 'jsmith@abc.com',
             role: 'admin'
         },
         {
             id: 2,
-            name: 'Jane Doe',
+            firstname: 'Jane'
+            lastname: 'Doe',
             email: 'jdoe@abc.com',
             role: 'staff'
         },
         {
             id: 3,
-            name: 'Jill Doe',
+            firstname: 'Jill',
+            lastname: 'Doe',
             email: 'jdoe@abc.com',
             role: 'volunteer'
         }
@@ -252,7 +260,8 @@ a **GET** request to */api/staff/:id* will return an object with the staff membe
     decodedToken: 'aKafj1Dg2kLD434So',
     staff: {
         id: 1,
-        name: 'John Smith ',
+        firstname: 'John'
+        lastname: 'Smith',
         email: 'jsmith@abc.com'
     }
 
@@ -271,7 +280,8 @@ a **PUT** request to */api/staff/:id* will return an object with a count of 1 if
 }
 
 the **PUT** request must include the following:
-- *name*
+- *firstname*
+- *lastname*
 - *email*
 - *role*
 

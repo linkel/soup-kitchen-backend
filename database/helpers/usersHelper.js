@@ -18,8 +18,8 @@ module.exports = {
 	},
 
 	getUsers: (id) => {
-		const allUsers = db('users').select('id', 'name', 'email', 'role');
-		const user = db('users').select('id', 'name', 'email', 'role').where({ id }).first();
+		const allUsers = db('users').select('id', 'firstname', 'lastname', 'email', 'role');
+		const user = db('users').select('id', 'firstname', 'lastname', 'email', 'role').where({ id }).first();
 
 		if (id) {
 			return user;

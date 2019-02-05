@@ -1,19 +1,22 @@
 const faker = require('faker')
 
 const createFakeStaff = () => ({
-  name: `${faker.name.firstName()} ${faker.name.lastName()}`,
+  firstname: faker.name.firstName(),
+  lastname: faker.name.lastName(),
   email: faker.internet.email(),
   password: faker.internet.password(),
   role: 'staff'
 })
 const createFakeVolunteers = () => ({
-  name: `${faker.name.firstName()} ${faker.name.lastName()}`,
+  firstname: faker.name.firstName(),
+  lastname: faker.name.lastName(),
   email: faker.internet.email(),
   password: faker.internet.password(),
   role: 'volunteer'
 })
 const createFakeAdmin = () => ({
-  name: `${faker.name.firstName()} ${faker.name.lastName()}`,
+  firstname: faker.name.firstName(),
+  lastname: faker.name.lastName(),
   email: faker.internet.email(),
   password: faker.internet.password(),
   role: 'admin'

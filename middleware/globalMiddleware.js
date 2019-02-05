@@ -2,6 +2,7 @@ const helmet = require('helmet');
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
+const multer = require('multer')
 
 module.exports = (server) => {
 	server.use(helmet());
