@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const fs = require('fs');
 const responseStatus = require('../config/responseStatuses');
 
 require('dotenv').config();

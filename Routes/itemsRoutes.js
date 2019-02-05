@@ -3,7 +3,6 @@ const router = express.Router();
 const responseStatus = require('../config/responseStatuses');
 const { protects, emptyCheck } = require('../middleware/authMiddleware');
 const db = require('../database/helpers/itemsHelper');
-
 const url = require('url');
 
 //browser will look like /categories/1
@@ -16,10 +15,10 @@ const url = require('url');
 //create a new item for a category
 router.post('/', emptyCheck, (req, res, next) => {
 	const { body } = req;
-	let {imageURL} = req.body
-	if(imageURL === ''){
-		imageURL = '../../assets/dish-icon.jpg'
-	}
+	// let {imageURL} = req.body
+	// if(imageURL === ''){
+		
+	// }
 	db.addItem(body)
 		.then((id) => {
 			return res.status(responseStatus.created).json({ itemID: id });
