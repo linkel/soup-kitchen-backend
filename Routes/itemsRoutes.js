@@ -74,6 +74,7 @@ router.get('/:id', protects, (req, res, next) => {
 router.put('/:id', (req, res, next) => {
 	const { id } = req.params;
 	const { body } = req;
+	let {imageURL} = req.body
 	if (imageURL === '') {
 		imageURL = 'https://i.imgur.com/zpw4lgT.png';
 	}
