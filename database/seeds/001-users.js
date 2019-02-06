@@ -29,6 +29,14 @@ exports.seed = async function(knex, Promise) {
 	const desiredStaff = 10;
 	const desiredAdmins = 5;
 	const desiredVolunteers = 15;
+	const test = {
+		"email": "kelly@lin.com",
+		"password": "test",
+		"firstname": "Kelly",
+		"lastname": "Lin",
+		"role": "admin"
+	}
+	fakeUsers.push(test)
 
 	for (let i = 0; i < desiredAdmins; i++) {
 		fakeUsers.push(createFakeAdmin());
