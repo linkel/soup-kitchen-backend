@@ -24,13 +24,7 @@ const createFakeAdmin = () => ({
 
 exports.seed = async function(knex, Promise) {
 	const fakeUsers = [
-		{
-			email: 'kelly@lin.com',
-			password: 'test',
-			firstname: 'Kelly',
-			lastname: 'Lin',
-			role: 'admin'
-		},
+		
 	];
 	const desiredStaff = 10;
 	const desiredAdmins = 5;
