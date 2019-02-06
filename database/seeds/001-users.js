@@ -28,7 +28,8 @@ exports.seed = async function(knex, Promise) {
 			email: 'kelly@lin.com',
 			password: 'test',
 			firstname: 'Kelly',
-			lastname: 'Lin'
+      lastname: 'Lin',
+      role: 'admin'
 		}
 	];
 	const desiredStaff = 10;
