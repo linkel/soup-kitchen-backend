@@ -25,8 +25,8 @@ router.post('/', (req, res, next) => {
 			return res.status(responseStatus.created).json({ itemID: id });
 		})
 		.catch((err) => {
-			console.log(err);
-			next(responseStatus.serverError);
+			res.status(500).json(err)
+			//next(responseStatus.serverError);
 		});
 });
 //Read
