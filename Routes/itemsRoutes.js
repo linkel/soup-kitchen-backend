@@ -9,16 +9,18 @@ const db = require('../database/helpers/itemsHelper');
 router.post('/', imageCheck, (req, res, next) => {
 	const { body } = req;
 	let { name, amount } = req.body;
-	 if (typeof amount !== 'string' && name !== ''){
+	 if (typeof amount === 'string' || amount < 0){
+		return res.status(responseStatus.badRequest).json({ statusCode: responseStatus.badRequest, message: 'Amount cannot be blank and cannot be negative.'})
+	} else if (name === '') {
+		next(responseStatus.badRequest)
+	} else {
 		db.addItem(body)
 		.then((id) => {
 			return res.status(responseStatus.created).json({ itemID: id });
 		})
 		.catch((err) => {
 			next(err);
-		});
-	} else {
-		next(responseStatus.badRequest)
+		});	
 	}	
 });
 //Read
@@ -70,7 +72,11 @@ router.put('/:id', imageCheck, (req, res, next) => {
 	const { id } = req.params;
 	const { body } = req;
 	let {amount, name} = req.body
-	if ( typeof amount !== 'string' && name !== ''){
+	if (typeof amount === 'string' || amount < 0){
+		return res.status(400).json({statusCode: responseStatus.badRequest, message: 'Amount cannot be blank and cannot be negative.'})
+	} else if (name === '') {
+		next(responseStatus.badRequest)
+	} else {
 	db.updateItem(id, body)
 		.then((count) => {
 			if (count === 1) {
@@ -82,9 +88,7 @@ router.put('/:id', imageCheck, (req, res, next) => {
 		.catch((err) => {
 			next(err);
 		});
-	} else {
-		next(responseStatus.badRequest)
-	}	
+	} 	
 });
 
 //Delete
