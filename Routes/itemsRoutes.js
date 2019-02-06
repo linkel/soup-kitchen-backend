@@ -15,9 +15,9 @@ const url = require('url');
 //create a new item for a category
 router.post('/', emptyCheck, (req, res, next) => {
 	const { body } = req;
-	let {imageURL} = req.body
-	if(imageURL === ''){
-		imageURL = 'https://i.imgur.com/zpw4lgT.png'
+	let { imageURL } = req.body;
+	if (imageURL === '') {
+		imageURL = 'https://i.imgur.com/zpw4lgT.png';
 	}
 	db.addItem(body)
 		.then((id) => {
@@ -33,6 +33,11 @@ router.post('/', emptyCheck, (req, res, next) => {
 router.get('/', protects, (req, res, next) => {
 	db.getItems()
 		.then((items) => {
+			items.forEach((item) => {
+				if (item.imageURL === '') {
+					item.imageURL = 'https://i.imgur.com/zpw4lgT.png';
+				}
+			});
 			return res
 				.status(responseStatus.successful)
 				.json({ items, decodedToken: req.decodedToken });
@@ -67,8 +72,8 @@ router.get('/:id', protects, (req, res, next) => {
 router.put('/:id', emptyCheck, (req, res, next) => {
 	const { id } = req.params;
 	const { body } = req;
-	if(imageURL === ''){
-		imageURL = 'https://i.imgur.com/zpw4lgT.png'
+	if (imageURL === '') {
+		imageURL = 'https://i.imgur.com/zpw4lgT.png';
 	}
 	db.updateItem(id, body)
 		.then((count) => {
