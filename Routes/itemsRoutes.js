@@ -54,6 +54,9 @@ router.get('/:id', protects, (req, res, next) => {
 	const { id } = req.params;
 	db.getItems(id)
 		.then((item) => {
+			if (item.imageURL === '') {
+				item.imageURL = 'https://i.imgur.com/zpw4lgT.png';
+			}
 			res
 				.status(responseStatus.successful)
 				.json({ item, decodedToken: req.decodedToken });
