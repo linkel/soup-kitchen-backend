@@ -67,6 +67,9 @@ router.get('/:id', protects, (req, res, next) => {
 router.put('/:id', emptyCheck, (req, res, next) => {
 	const { id } = req.params;
 	const { body } = req;
+	if(imageURL === ''){
+		imageURL = 'https://i.imgur.com/zpw4lgT.png'
+	}
 	db.updateItem(id, body)
 		.then((count) => {
 			if (count === 1) {
