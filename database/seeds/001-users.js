@@ -30,7 +30,7 @@ exports.seed = async function(knex, Promise) {
 			firstname: 'Kelly',
 			lastname: 'Lin',
 			role: 'admin'
-		}
+		},
 	];
 	const desiredStaff = 10;
 	const desiredAdmins = 5;
