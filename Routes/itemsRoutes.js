@@ -20,13 +20,11 @@ router.post('/', (req, res, next) => {
 		imageURL = 'https://i.imgur.com/zpw4lgT.png';
 	}
 	db.addItem(body)
-	console.log(body)
 		.then((id) => {
 			return res.status(responseStatus.created).json({ itemID: id });
 		})
 		.catch((err) => {
-			res.status(500).json(err)
-			//next(responseStatus.serverError);
+			next(responseStatus.serverError);
 		});
 });
 //Read
