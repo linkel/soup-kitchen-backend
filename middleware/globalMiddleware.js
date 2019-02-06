@@ -9,5 +9,5 @@ module.exports = (server) => {
 	server.use(helmet());
 	server.use(express.json());
 	server.use(morgan('short'));
-	server.use(cors({ credentials: true, origin: 'https://soup-kitchen.netlify.com/' }));
+	server.use(cors());
 };
