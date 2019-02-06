@@ -13,8 +13,8 @@ router.post('/', emptyCheck, (req, res, next) => {
 			return res.status(responseStatus.created).json({ categoryID: id });
 		})
 		.catch((err) => {
-			console.log(err);
-			next(responseStatus.serverError);
+			//console.log(err);
+			next(err);
 		});
 });
 
@@ -28,8 +28,8 @@ router.get('/', protects, (req, res, next) => {
 				.json({ categories, decodedToken: req.decodedToken });
 		})
 		.catch((err) => {
-			console.log(err);
-			next(responseStatus.serverError);
+			//console.log(err);
+			next(err);
 		});
 });
 
@@ -47,7 +47,7 @@ router.get('/:id', protects, (req, res, next) => {
 			if (TypeError) {
 				next(responseStatus.notFound);
 			} else {
-				next(responseStatus.serverError);
+				next(err);
 			}
 		});
 });
@@ -66,8 +66,8 @@ router.put('/:id', emptyCheck, (req, res, next) => {
 			}
 		})
 		.catch((err) => {
-			console.log(err);
-			next(responseStatus.serverError);
+			//console.log(err);
+			next(err);
 		});
 });
 
@@ -84,8 +84,8 @@ router.delete('/:id', (req, res, next) => {
 			}
 		})
 		.catch((err) => {
-			console.log(err);
-			next(responseStatus.serverError);
+			//console.log(err);
+			next(err);
 		});
 });
 

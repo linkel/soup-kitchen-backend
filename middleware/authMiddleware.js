@@ -13,7 +13,7 @@ module.exports = {
 				(err, decodedToken) => {
 					if (err) {
 						//token is invalid
-						next(responseStatus.forbiddenAccess);
+						next(err);
 					} else {
 						//token is valid
 						req.decodedToken = decodedToken;
@@ -36,12 +36,20 @@ module.exports = {
 		next();
 	},
 
+	imageCheck: (req, res, next) => {
+		let {imageURL} = req.body;
+		if (imageURL === '') {
+			imageURL = 'https://i.imgur.com/zpw4lgT.png';
+		}
+		next()
+	},
+
 	whitespaceCheck: (req, res, next) => {
 		const { body } = req;
 		for (key in body) {
 			if (body[key].match(/\s/g)) {
 				res
-					.status(400)
+					.status(responseStatus.badRequest)
 					.json({ message: 'Input fields cannot contain whitespace.' })
 					next();
 			}

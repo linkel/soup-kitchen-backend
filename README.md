@@ -244,7 +244,6 @@ a **DELETE** request to */api/categories/:id* will return an object with a count
 
 }
 
-***Note***: This will delete the category and **ALL** items associated with the category!
 
 -------------------------------------------------------
 ## Staff
@@ -336,13 +335,23 @@ a **DELETE** request to */api/staff/:id* will return an object with a count of 1
 
 }
 
-***Note:*** All **errors** will come back as an object like so: 
+------------------------------------------------------
 
-- ex. Missing input on login
+***Note:*** Errors will come back in one of two formats 
+
+- ex. 1: Missing input on login
 
 {
 
-    message: "Input cannot be blank.",
-    error: 400
+    statusCode: 400,
+    message: "Input cannot be blank."
+    
+}
+
+- ex. 2: Email used to register already exists in database
+
+{
+
+ message: "insert into `users` (`email`, `firstname`, `lastname`, `password`, `role`) values ('fake@abc.com', 'a', 'b', '$2a$12$dH5D9FnZlHsVpmf1jqno1u/XBL3KF3pkhwFJmGfTYrqj9lpu1f/0e', 'admin') - SQLITE_CONSTRAINT: UNIQUE constraint failed: users.email"
 
 }

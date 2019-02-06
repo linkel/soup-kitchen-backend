@@ -30,8 +30,8 @@ router.post('/register', emptyCheck, whitespaceCheck, (req, res, next) => {
 			});
 		})
 		.catch((err) => {
-			console.log(err);
-			next(responseStatus.serverError, err);
+			//console.log(err);
+			next(err);
 		});
 });
 
@@ -54,8 +54,8 @@ router.post('/login', emptyCheck, (req, res, next) => {
 			}
 		})
 		.catch((err) => {
-			console.log(err);
-			next(responseStatus.serverError);
+			//console.log(err);
+			next(err);
 		});
 });
 //Read
@@ -68,8 +68,8 @@ router.get('/', protects, checkRole(), (req, res, next) => {
 				.json({ users, decodedToken: req.decodedToken });
 		})
 		.catch((err) => {
-			console.log(err);
-			next(responseStatus.serverError);
+			//console.log(err);
+			next(err);
 		});
 });
 
@@ -87,8 +87,8 @@ router.get('/:id', protects, checkRole(), (req, res, next) => {
 			if (TypeError) {
 				next(responseStatus.notFound);
 			} else {
-				console.log(err);
-				next(responseStatus.serverError);
+				//console.log(err);
+				next(err);
 			}
 		});
 });
@@ -108,8 +108,8 @@ router.put('/:id', emptyCheck, whitespaceCheck, (req, res, next) => {
 			}
 		})
 		.catch((err) => {
-			console.log(err);
-			next(responseStatus.serverError);
+			//console.log(err);
+			next(err);
 		});
 });
 
@@ -126,8 +126,8 @@ router.delete('/:id', (req, res, next) => {
 			}
 		})
 		.catch((err) => {
-			console.log(err);
-			next(responseStatus.serverError);
+			//console.log(err);
+			next(err);
 		});
 });
 

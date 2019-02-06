@@ -5,32 +5,32 @@ function errorHandler(error, req, res, next) {
 		case responseStatus.badRequest:
 			res
 				.status(responseStatus.badRequest)
-				.json({ message: 'Input fields cannot be blank.', error });
+				.json({statusCode: error, message: 'Required fields cannot be blank.'  });
 			break;
 		case responseStatus.notFound:
 			res
 				.status(responseStatus.notFound)
-				.json({ message: 'This page does not exist.', error });
+				.json({ statusCode: error, message: 'This page does not exist.' });
 			break;
 		case responseStatus.serverError:
 			res.status(responseStatus.serverError).json({
-				message: `The request could not be completed. Please try again.`,
-				error
+				statusCode: error,
+				message: `The request could not be completed. Please try again.`
 			});
 
 			break;
 		case responseStatus.badCredentials:
 			res
 				.status(responseStatus.badCredentials)
-				.json({ message: 'Incorrect credentials. Please try again.', error });
+				.json({ statusCode: error, message: 'Incorrect credentials. Please try again.' });
 		case responseStatus.forbiddenAccess:
 			res.status(responseStatus.forbiddenAccess).json({
-				message: 'You are not authorized to view this content.',
-				error
+				statusCode: error,
+				message: 'You are not authorized to view this content.'
 			});
 		default:
-			console.log(error);
-			res.json({ error: error });
+			//console.log(error);
+			res.json({ message: error.message });
 	}
 	next();
 }

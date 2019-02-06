@@ -1,31 +1,25 @@
 const express = require('express');
 const router = express.Router();
 const responseStatus = require('../config/responseStatuses');
-const { protects, emptyCheck } = require('../middleware/authMiddleware');
+const { protects, imageCheck } = require('../middleware/authMiddleware');
 const db = require('../database/helpers/itemsHelper');
-const url = require('url');
-
-//browser will look like /categories/1
-// can do on front end
-// let url = window.location.href
-// let id = url.substring(url.lastIndexOf('/') + 1);
-// then pass in object to axios like { ... categoryID: id}
 
 //Create
 //create a new item for a category
-router.post('/', (req, res, next) => {
+router.post('/', imageCheck, (req, res, next) => {
 	const { body } = req;
-	let { imageURL } = req.body;
-	if (imageURL === '') {
-		imageURL = 'https://i.imgur.com/zpw4lgT.png';
-	}
-	db.addItem(body)
+	let { name, amount } = req.body;
+	 if (typeof amount !== 'string' && name !== ''){
+		db.addItem(body)
 		.then((id) => {
 			return res.status(responseStatus.created).json({ itemID: id });
 		})
 		.catch((err) => {
-			next(responseStatus.serverError);
+			next(err);
 		});
+	} else {
+		next(responseStatus.badRequest)
+	}	
 });
 //Read
 //get all items
@@ -35,15 +29,15 @@ router.get('/', protects, (req, res, next) => {
 			items.forEach((item) => {
 				if (item.imageURL === '') {
 					item.imageURL = 'https://i.imgur.com/zpw4lgT.png';
-				}
+				} 
 			});
 			return res
 				.status(responseStatus.successful)
 				.json({ items, decodedToken: req.decodedToken });
 		})
 		.catch((err) => {
-			console.log(err);
-			next(responseStatus.serverError);
+			// console.log(err);
+			next(err);
 		});
 });
 
@@ -64,20 +58,19 @@ router.get('/:id', protects, (req, res, next) => {
 			if (TypeError) {
 				next(responseStatus.notFound);
 			} else {
-				next(responseStatus.serverError);
+				next(err);
 			}
 		});
 });
 
 //Update
 //update an items string name or amount
-router.put('/:id', (req, res, next) => {
+router.put('/:id', imageCheck, (req, res, next) => {
+	
 	const { id } = req.params;
 	const { body } = req;
-	let {imageURL} = req.body
-	if (imageURL === '') {
-		imageURL = 'https://i.imgur.com/zpw4lgT.png';
-	}
+	let {amount, name} = req.body
+	if ( typeof amount !== 'string' && name !== ''){
 	db.updateItem(id, body)
 		.then((count) => {
 			if (count === 1) {
@@ -87,9 +80,11 @@ router.put('/:id', (req, res, next) => {
 			}
 		})
 		.catch((err) => {
-			console.log(err);
-			next(responseStatus.serverError);
+			next(err);
 		});
+	} else {
+		next(responseStatus.badRequest)
+	}	
 });
 
 //Delete
@@ -105,8 +100,8 @@ router.delete('/:id', (req, res, next) => {
 			}
 		})
 		.catch((err) => {
-			console.log(err);
-			next(responseStatus.serverError);
+			// console.log(err);
+			next(err);
 		});
 });
 
