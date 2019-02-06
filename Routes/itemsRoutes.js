@@ -13,13 +13,14 @@ const url = require('url');
 
 //Create
 //create a new item for a category
-router.post('/', emptyCheck, (req, res, next) => {
+router.post('/', (req, res, next) => {
 	const { body } = req;
 	let { imageURL } = req.body;
 	if (imageURL === '') {
 		imageURL = 'https://i.imgur.com/zpw4lgT.png';
 	}
 	db.addItem(body)
+	console.log(body)
 		.then((id) => {
 			return res.status(responseStatus.created).json({ itemID: id });
 		})
@@ -72,7 +73,7 @@ router.get('/:id', protects, (req, res, next) => {
 
 //Update
 //update an items string name or amount
-router.put('/:id', emptyCheck, (req, res, next) => {
+router.put('/:id', (req, res, next) => {
 	const { id } = req.params;
 	const { body } = req;
 	if (imageURL === '') {
