@@ -12,7 +12,8 @@ exports.up = function(knex, Promise) {
 			.integer('categoryID')
 			.unsigned()
 			.references('id')
-			.inTable('categories');
+			.inTable('categories')
+			.onDelete('cascade');
 	});
 };
 
