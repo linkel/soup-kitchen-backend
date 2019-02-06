@@ -15,10 +15,10 @@ const url = require('url');
 //create a new item for a category
 router.post('/', emptyCheck, (req, res, next) => {
 	const { body } = req;
-	// let {imageURL} = req.body
-	// if(imageURL === ''){
-		
-	// }
+	let {imageURL} = req.body
+	if(imageURL === ''){
+		imageURL = 'https://i.imgur.com/zpw4lgT.png'
+	}
 	db.addItem(body)
 		.then((id) => {
 			return res.status(responseStatus.created).json({ itemID: id });
