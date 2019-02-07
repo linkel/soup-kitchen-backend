@@ -22,7 +22,8 @@ describe('Authentication', function() {
 		request(server)
 			.post('/api/staff/register')
 			.send({
-				name: 'Jane Doe',
+				firstname: 'Jane',
+				lastname: 'Doe',
 				email: 'jdoe@abc.com',
 				password: 'Ff!738FJ*',
 				role: 'admin'
@@ -73,7 +74,8 @@ describe('Authentication', function() {
 		request(server)
 			.post('/api/staff/register')
 			.send({
-				name: 'Jane Doe',
+				firstname: 'Jane',
+				lastname: 'Doe',
 				email: 'akfjl@abc.com',
 				password: 'Ff!738FJ*',
 				role: 'volunteer'
@@ -101,7 +103,7 @@ describe('/inventory CRUD', function() {
 			.send({
 				name: 'corn',
 				amount: 3,
-				unit: 'lb(s)',
+				unit: 'lbs',
 				imageURL: 'ajkflajk',
 				categoryID: 1
 			})
