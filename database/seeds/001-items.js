@@ -181,8 +181,8 @@ exports.seed = function(knex, Promise) {
 					name: 'plates',
 					amount: '50',
 					unit:
-						'https://s3.amazonaws.com/images.pdpics.com/preview/1896-stack-of-plates.jpg',
-					imageURL: '',
+						'',
+					imageURL: 'https://upload.wikimedia.org/wikipedia/commons/3/3b/Dinner_plates.jpg',
 					categoryID: 7
 				},
 				{
@@ -190,7 +190,7 @@ exports.seed = function(knex, Promise) {
 					amount: '50',
 					unit: '',
 					imageURL:
-						'https://www.publicdomainpictures.net/pictures/100000/velka/silver-coloured-forks.jpg',
+						'',
 					categoryID: 3
 				},
 				{
