@@ -47,120 +47,206 @@ exports.seed = function(knex, Promise) {
 					imageURL: 'https://i.imgur.com/47fHnED.jpg',
 					categoryID: 1
 				},
-				{ name: 'butter', amount: '1', unit: 'lb', imageURL: '', categoryID: 4 },
-				{ name: 'milk', amount: '1', unit: 'gal', imageURL: '', categoryID: 4 },
+				{
+					name: 'butter',
+					amount: '1',
+					unit: 'lb',
+					imageURL: 'https://i.imgur.com/8YbmBtp.jpg',
+					categoryID: 4
+				},
+				{
+					name: 'milk',
+					amount: '1',
+					unit: 'gal',
+					imageURL: 'https://i.imgur.com/X744RyB.png',
+					categoryID: 4
+				},
 				{
 					name: 'yogurt',
 					amount: '64',
 					unit: 'oz',
-					imageURL: '',
+					imageURL:
+						'https://vignette.wikia.nocookie.net/yogurt-connoisseur/images/a/a2/Yogurt-fruit.jpg/revision/latest?cb=20131018061432',
 					categoryID: 4
 				},
 				{
 					name: 'cheese',
 					amount: '5',
 					unit: 'lbs',
-					imageURL: '',
+					imageURL:
+						'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Swiss_cheese_cubes.jpg/800px-Swiss_cheese_cubes.jpg',
 					categoryID: 4
 				},
 				{
 					name: 'garlic powder',
 					amount: '3',
 					unit: 'oz',
-					imageURL: '',
+					imageURL:
+						'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Garlic_Powder%2C_Penzeys_Spices%2C_Arlington_Heights_MA.jpg/800px-Garlic_Powder%2C_Penzeys_Spices%2C_Arlington_Heights_MA.jpg',
 					categoryID: 9
 				},
 				{
 					name: 'beans',
 					amount: '12',
 					unit: 'cans',
-					imageURL: '',
+					imageURL:
+						'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Painted_Pony_Bean.JPG/800px-Painted_Pony_Bean.JPG',
 					categoryID: 2
 				},
 				{
 					name: 'bread',
 					amount: '3',
 					unit: 'loaves',
-					imageURL: '',
+					imageURL:
+						'https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Anadama_bread_%281%29.jpg/1280px-Anadama_bread_%281%29.jpg',
 					categoryID: 8
 				},
 				{
 					name: 'rice',
 					amount: '20',
 					unit: 'lbs',
-					imageURL: '',
+					imageURL:
+						'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/White%2C_Brown%2C_Red_%26_Wild_rice.jpg/1200px-White%2C_Brown%2C_Red_%26_Wild_rice.jpg',
 					categoryID: 8
 				},
 				{
 					name: 'spaghetti',
 					amount: '5',
 					unit: 'lbs',
-					imageURL: '',
+					imageURL:
+						'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Aglio_e_olio.jpg/1024px-Aglio_e_olio.jpg',
 					categoryID: 8
 				},
 				{
 					name: 'bacon',
 					amount: '3',
 					unit: 'lbs',
-					imageURL: '',
+					imageURL: 'https://i.imgur.com/qZ2W3WL.jpg',
 					categoryID: 5
 				},
 				{
 					name: 'chicken',
 					amount: '10',
 					unit: 'lbs',
-					imageURL: '',
+					imageURL:
+						'https://vignette.wikia.nocookie.net/recipes/images/4/4e/Grilled_chicken_Breasts.jpg/revision/latest?cb=20140516073436',
 					categoryID: 5
 				},
 				{
 					name: 'ground beef',
 					amount: '15',
 					unit: 'lbs',
-					imageURL: '',
+					imageURL: 'https://i.imgur.com/tMNPVJh.jpg',
 					categoryID: 5
 				},
 				{
 					name: 'blueberries',
 					amount: '12',
 					unit: 'oz',
-					imageURL: '',
+					imageURL: 'https://i.imgur.com/uGWEPNR.jpg',
 					categoryID: 2
 				},
 				{
 					name: 'grapes',
 					amount: '3',
 					unit: 'lbs',
-					imageURL: '',
+					imageURL:
+						'https://vignette.wikia.nocookie.net/recipes/images/4/48/Uvas.jpg/revision/latest?cb=20080516004641',
 					categoryID: 2
 				},
 				{
 					name: 'strawberries',
 					amount: '1',
 					unit: 'lb',
-					imageURL: '',
+					imageURL: 'https://i.imgur.com/GxJiS2Z.jpg',
 					categoryID: 2
 				},
-				{ name: 'salt', amount: '10', unit: 'oz', imageURL: '', categoryID: 9 },
-				{ name: 'pepper', amount: '2', unit: 'oz', imageURL: '', categoryID: 9 },
-				{ name: 'plates', amount: '50', unit: '', imageURL: '', categoryID: 7 },
-				{ name: 'forks', amount: '50', unit: '', imageURL: '', categoryID: 3 },
-				{ name: 'knives', amount: '50', unit: '', imageURL: '', categoryID: 3 },
-				{ name: 'bowls', amount: '50', unit: '', imageURL: '', categoryID: 7 },
-				{ name: 'spoons', amount: '50', unit: '', imageURL: '', categoryID: 3 },
-				{ name: 'cups', amount: '50', unit: '', imageURL: '', categoryID: 7 },
+				{
+					name: 'salt',
+					amount: '10',
+					unit: 'oz',
+					imageURL:
+						'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Salt%2C_sugar_and_pepper_shakers.jpg/800px-Salt%2C_sugar_and_pepper_shakers.jpg',
+					categoryID: 9
+				},
+				{
+					name: 'pepper',
+					amount: '2',
+					unit: 'oz',
+					imageURL:
+						'https://vignette.wikia.nocookie.net/chilipeps/images/e/e7/Spilled_Pepper.jpg/revision/latest/scale-to-width-down/640?cb=20150128174637',
+					categoryID: 9
+				},
+				{
+					name: 'plates',
+					amount: '50',
+					unit:
+						'https://s3.amazonaws.com/images.pdpics.com/preview/1896-stack-of-plates.jpg',
+					imageURL: '',
+					categoryID: 7
+				},
+				{
+					name: 'forks',
+					amount: '50',
+					unit: '',
+					imageURL:
+						'https://www.publicdomainpictures.net/pictures/100000/velka/silver-coloured-forks.jpg',
+					categoryID: 3
+				},
+				{
+					name: 'knives',
+					amount: '50',
+					unit: '',
+					imageURL:
+						'https://www.goodfreephotos.com/cache/other-photos/knife-image.jpg',
+					categoryID: 3
+				},
+				{
+					name: 'bowls',
+					amount: '50',
+					unit: '',
+					imageURL:
+						'https://www.publicdomainpictures.net/pictures/210000/velka/white-bowl-1481126638e42.jpg',
+					categoryID: 7
+				},
+				{
+					name: 'spoons',
+					amount: '50',
+					unit: '',
+					imageURL:
+						'http://www.photos-public-domain.com/wp-content/uploads/2011/02/soup-spoons-600x400.jpg',
+					categoryID: 3
+				},
+				{
+					name: 'cups',
+					amount: '50',
+					unit: '',
+					imageURL:
+						'http://absfreepic.com/absolutely_free_photos/small_photos/the-coffee-cups-4032x3024_49496.jpg',
+					categoryID: 7
+				},
 				{
 					name: 'orange juice',
 					amount: '64',
 					unit: 'oz',
-					imageURL: '',
+					imageURL:
+						'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Oranges_and_orange_juice.jpg/800px-Oranges_and_orange_juice.jpg',
 					categoryID: 6
 				},
 				{
 					name: 'apple juice',
 					amount: '64',
 					unit: 'oz',
-					imageURL: '',
+					imageURL:
+						'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Apple_juice_with_3apples.jpg/800px-Apple_juice_with_3apples.jpg',
 					categoryID: 6
+				},
+				{
+					name: 'dragonfruit',
+					amount: '2',
+					unit: 'lbs',
+					imageURL: 'https://i.imgur.com/EYHSaBf.jpg',
+					categoryID: 2
 				}
 			]);
 		});
