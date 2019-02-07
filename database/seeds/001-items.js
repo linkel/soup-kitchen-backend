@@ -190,7 +190,7 @@ exports.seed = function(knex, Promise) {
 					amount: '50',
 					unit: '',
 					imageURL:
-						'',
+						'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Forks.png/800px-Forks.png',
 					categoryID: 3
 				},
 				{
@@ -206,7 +206,7 @@ exports.seed = function(knex, Promise) {
 					amount: '50',
 					unit: '',
 					imageURL:
-						'https://www.publicdomainpictures.net/pictures/210000/velka/white-bowl-1481126638e42.jpg',
+						'https://upload.wikimedia.org/wikipedia/commons/c/c7/Simple-ceramic-bowl_%28cropped%29.jpg',
 					categoryID: 7
 				},
 				{
@@ -214,7 +214,7 @@ exports.seed = function(knex, Promise) {
 					amount: '50',
 					unit: '',
 					imageURL:
-						'http://www.photos-public-domain.com/wp-content/uploads/2011/02/soup-spoons-600x400.jpg',
+						'https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Dessert_Spoon.jpg/1280px-Dessert_Spoon.jpg',
 					categoryID: 3
 				},
 				{
@@ -222,7 +222,7 @@ exports.seed = function(knex, Promise) {
 					amount: '50',
 					unit: '',
 					imageURL:
-						'http://absfreepic.com/absolutely_free_photos/small_photos/the-coffee-cups-4032x3024_49496.jpg',
+						'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Pressed_glass.jpg/1024px-Pressed_glass.jpg',
 					categoryID: 7
 				},
 				{
