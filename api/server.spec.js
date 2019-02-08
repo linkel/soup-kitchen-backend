@@ -41,7 +41,9 @@ describe('Authentication', function() {
 						//adding new staff
 						request(server)
 							.post('/api/staff')
-							.send({ name: 'Jane Doe' })
+							.send({ firstname: 'Jane',
+									lastname: 'Doe' 
+								})
 							.end(function(err, res) {
 								if (err) return done(err);
 								done();
