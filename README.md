@@ -1,5 +1,9 @@
 # soup-kitchen-backend
 
+# Background
+
+Chaya Otikor was the back-end architect for this project in Team Soup. The initial iteration of this codebase was written jointly by Chaya and Marshall Lanners. I've forked this project so that I can modify host the back-end myself for future access. 
+
 # Instructions
 
 All API requests are made to: ***https://soup-kitchen-backend.herokuapp.com***
